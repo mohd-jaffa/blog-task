@@ -1,0 +1,42 @@
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
+
+export default function Profile() {
+    const { user } = useContext(UserContext);
+
+    return (
+        <div className="flex justify-center">
+            <div className="max-w-md bg-white rounded-xl shadow-sm p-6 w-full bg-white">
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                    My Profile
+                </h2>
+                <div className="space-y-4 text-sm">
+                    <div>
+                        <p className="text-gray-500">Name</p>
+                        <p className="text-gray-800 font-medium">
+                            {user?.name}
+                        </p>
+                    </div>
+                    <div>
+                        <p className="text-gray-500">Email</p>
+                        <p className="text-gray-800 font-medium">
+                            {user?.email}
+                        </p>
+                    </div>
+                    <div>
+                        <p className="text-gray-500">Role</p>
+                        <p className="text-gray-800 font-medium">
+                            {user?.role}
+                        </p>
+                    </div>
+                    <div>
+                        <p className="text-gray-500">Joined on</p>
+                        <p className="text-gray-800 font-medium">
+                            {user?.createdAt.slice(0, 10)}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
